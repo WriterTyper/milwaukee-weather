@@ -7,7 +7,7 @@ name: EPL table
 
 jobs:
   render:
-    name: Update graphs
+    name: Update EPL table
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -15,12 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@v2
-      - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           # don't reinstall R
           install-r: false
           # use RStudio's CRAN mirror with precompiled binaries
           use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
           extra-packages: any::worldfootballR
       - name: Cache packages
         uses: actions/cache@v2
