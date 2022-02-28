@@ -25,19 +25,17 @@ unlink(temp)
 # subset and format
 ghcn.wide <- ghcn %>%
   select(yearmoda, element, value) %>%
-  filter(element %in% c("PRCP", "SNOW", "SNWD", "TMAX", "TMIN")) %>%
+  filter(element %in% c("PRCP", "TMAX", "TMIN")) %>%
   separate(col = yearmoda, sep = c(4,6), into = c("year", "month", "day")) %>%
   pivot_wider(names_from = element, values_from = value) %>%
   # convert from tenths of mm to inches
-  mutate(PRCP = PRCP * 0.00393701,
-         SNOW = SNOW * 0.00393701,
-         SNWD = SNWD * 0.00393701) %>%
+  mutate(PRCP = PRCP * 0.00393701) %>%
   # convert from tenths of degrees C to F
   mutate(TMAX = ((TMAX / 10) * (9/5)) + 32,
          TMIN = ((TMIN / 10) * (9/5)) + 32) %>%
   mutate(date = as.Date(paste(year, month, day, sep = "-")),
          day_of_year = lubridate::yday(date)) %>%
-  select(year, month, day, date, day_of_year, PRCP, SNOW, SNWD,
+  select(year, month, day, date, day_of_year, PRCP,
          TMAX, TMIN)
 
 write_csv(ghcn.wide, "data/GHCN_IN020040900.csv")
