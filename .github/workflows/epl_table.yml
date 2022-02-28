@@ -20,14 +20,11 @@ jobs:
           install-r: false
           # use RStudio's CRAN mirror with precompiled binaries
           use-public-rspm: true
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - name: Install dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: 2
-          extra-packages: |
-            any::worldfootballR, local::.
-          needs: |
-            website
-            coverage
+          extra-packages: any::roxygen2
+          needs: roxygen2
       - name: Cache packages
         uses: actions/cache@v2
         with:
