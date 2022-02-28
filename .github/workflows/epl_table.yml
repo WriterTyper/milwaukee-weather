@@ -24,7 +24,7 @@ jobs:
         with:
           cache-version: 2
           extra-packages: |
-            any::worldfootballR
+            any::worldfootballR, local::.
           needs: |
             website
             coverage
