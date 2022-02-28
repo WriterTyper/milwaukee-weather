@@ -20,11 +20,8 @@ jobs:
           install-r: false
           # use RStudio's CRAN mirror with precompiled binaries
           use-public-rspm: true
-      - name: Install dependencies
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::roxygen2
-          needs: roxygen2
+      - name: namestep1
+        run: Rscript -e 'install.packages("worldfootballR")'
       - name: Cache packages
         uses: actions/cache@v2
         with:
