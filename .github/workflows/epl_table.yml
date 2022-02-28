@@ -3,7 +3,7 @@ on:
 #  schedule:
 #    - cron: "0 * * * *"
 
-name: Madras weather update
+name: EPL table
 
 jobs:
   render:
