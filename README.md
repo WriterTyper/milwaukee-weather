@@ -10,6 +10,9 @@ This repo may be useful in three ways.
 
 Full disclosure: I'm a novice Github Actions user. This repo reflects my best understanding of Github Actions, and I plan to update it as my skills improve.
 
+![Daily High Temperature in Madras](graphs/DailyHighTemp_IN020040900.png)
+
+
 ![Daily High Temperature in Milwaukee](graphs/DailyHighTemp_USW00014839.png)
 
 ## About this data
