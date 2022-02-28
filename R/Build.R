@@ -91,7 +91,7 @@ max.graph <- daily.summary.stats %>%
                      breaks = month.breaks$day_of_year + 15,
                      labels = month.breaks$month_name,
                      name = NULL) +
-  labs(title = "Daily High Temperature at Milwaukee's Mitchell Airport",
+  labs(title = "Daily High Temperature at Madras Airport",
        subtitle = paste("The line shows daily highs for",
                         paste0(lubridate::year(last.date), "."),
                         "The ribbons cover the",
