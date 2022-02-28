@@ -22,7 +22,12 @@ jobs:
           use-public-rspm: true
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::worldfootballR
+          cache-version: 2
+          extra-packages: |
+            any::worldfootballR
+          needs: |
+            website
+            coverage
       - name: Cache packages
         uses: actions/cache@v2
         with:
