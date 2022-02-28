@@ -1,6 +1,5 @@
 
 
-install.packages("worldfootballR")
 library(worldfootballR)
 
 library(dplyr)
