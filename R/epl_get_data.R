@@ -6,6 +6,7 @@ library(dplyr)
 library(purrr)
 library(tibble)
 library(readr)
+library(tidyr)
 
 epl_results <- understat_league_match_results(league = "EPL", season_start_year = 2021)
 
