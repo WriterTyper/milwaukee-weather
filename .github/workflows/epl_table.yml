@@ -21,7 +21,7 @@ jobs:
           # use RStudio's CRAN mirror with precompiled binaries
           use-public-rspm: true
       - name: namestep1
-        run: Rscript -e 'install.packages("worldfootballR")'
+        run: Rscript -e 'install.packages(c("worldfootballR", "forcats")'
       - name: Cache packages
         uses: actions/cache@v2
         with:
