@@ -45,4 +45,9 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update data
-      
+      - name: Build graph
+        run:  Rscript -e 'source("R/epl_create_plot.R")'
+      - name: Commit graph
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update graph
