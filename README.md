@@ -3,7 +3,7 @@
 
 
 
-![English Premier League](graphs/epl_plot.png)
+![English Premier League](graphs/heatmap.png)
 
 
 ![Daily High Temperature in Madras](graphs/DailyHighTemp_IN020040900.png)
