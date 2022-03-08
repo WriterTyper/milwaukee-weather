@@ -1,8 +1,7 @@
 on:
-  workflow_dispatch:
-#  schedule:
-#    - cron: "0 * * * *"
-
+ schedule:
+   - cron: "0 18 * * *"
+ 
 name: EPL table
 
 jobs:
