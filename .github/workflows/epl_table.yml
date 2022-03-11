@@ -1,7 +1,5 @@
 on:
- schedule:
-   - cron: "0 18 * * *"
- 
+
 name: EPL table
 
 jobs:
