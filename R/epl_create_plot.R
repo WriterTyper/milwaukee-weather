@@ -22,7 +22,7 @@ epl_plot <- ggplot(current_table2, aes(factor(match), team3, fill = count)) +
                        mid = "#F5F5F5",
                        high = "#a0bcd6", 
                        na.value = "white") +
-  scale_y_discrete(limits = rev(levels(current_table2$team3))) +
+  scale_y_discrete(limits = rev(levels(fct_reorder(points$team, points$Total)))) +
   scale_x_discrete(position = "top") +
   xlab("Match") +
   ylab("") +
