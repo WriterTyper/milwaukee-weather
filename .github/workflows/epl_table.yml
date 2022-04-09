@@ -18,7 +18,7 @@ jobs:
           # use RStudio's CRAN mirror with precompiled binaries
           use-public-rspm: true
       - name: namestep1
-        run: Rscript -e 'install.packages("forcats")'
+        run: Rscript -e 'install.packages(c("rvest", "forcats", "qdapRegex"))'
       - name: Cache packages
         uses: actions/cache@v2
         with:
