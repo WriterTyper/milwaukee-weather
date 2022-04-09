@@ -78,6 +78,23 @@ current_table_simple <- current_table %>%
       . > 0 ~ 1
     )))
 
+points <- current_table %>% 
+  mutate_if(is.numeric, funs(case_when(
+      . < 0 ~ -1,
+      . == 0 ~ 0,
+      . > 0 ~ 1
+    ))) %>% 
+  mutate_if(is.numeric, funs(case_when(
+    . == -1 ~ 0,
+    . == 0 ~ 1,
+    . == 1 ~ 3
+  ))) %>% 
+   mutate(Total = rowSums(select_if(., is.numeric), na.rm = TRUE)) %>% 
+  relocate(Total, .after = 1) %>% 
+  arrange(desc(Total))
+
+
+
 
 
 epl_plot2 <- tidy_fun(current_table_simple) %>% 
