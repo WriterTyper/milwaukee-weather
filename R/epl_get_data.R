@@ -124,6 +124,22 @@ team_list <- epl_results %>% distinct(home_abbr)
 team_list <- team_list %>% unname() %>% unlist()
 
 current_table <- map_dfr(team_list, oneline_result, .data = epl_results) %>% arrange(team)
+                    
+points <- current_table %>% 
+  mutate_if(is.numeric, funs(case_when(
+      . < 0 ~ -1,
+      . == 0 ~ 0,
+      . > 0 ~ 1
+    ))) %>% 
+  mutate_if(is.numeric, funs(case_when(
+    . == -1 ~ 0,
+    . == 0 ~ 1,
+    . == 1 ~ 3
+  ))) %>% 
+   mutate(Total = rowSums(select_if(., is.numeric), na.rm = TRUE)) %>% 
+  relocate(Total, .after = 1) %>% 
+  arrange(desc(Total))
 
+write_csv(points, "data/points.csv")
 write_csv(epl_results, "data/epl_results.csv")
 write_csv(current_table, "data/current_table.csv")
