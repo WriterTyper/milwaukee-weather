@@ -12,7 +12,7 @@ current_table2 <- current_table %>%
   mutate(team3 = fct_inorder(team, ordered = TRUE))
 
 
-points <- current_table %>% 
+points <- current_table2 %>% 
   mutate_if(is.numeric, funs(case_when(
       . < 0 ~ -1,
       . == 0 ~ 0,
